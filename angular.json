@@ -1,7 +1,310 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "gestion-stock": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/gestion-stock",
+      "sourceRoot": "apps/gestion-stock/src",
+      "prefix": "demo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/gestion-stock",
+            "index": "apps/gestion-stock/src/index.html",
+            "main": "apps/gestion-stock/src/main.ts",
+            "polyfills": "apps/gestion-stock/src/polyfills.ts",
+            "tsConfig": "apps/gestion-stock/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/gestion-stock/src/favicon.ico",
+              "apps/gestion-stock/src/assets"
+            ],
+            "styles": ["apps/gestion-stock/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/gestion-stock/src/environments/environment.ts",
+                  "with": "apps/gestion-stock/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "gestion-stock:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "gestion-stock:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "gestion-stock:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/gestion-stock/tsconfig.app.json",
+              "apps/gestion-stock/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/gestion-stock/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/gestion-stock/jest.config.js",
+            "tsConfig": "apps/gestion-stock/tsconfig.spec.json",
+            "setupFile": "apps/gestion-stock/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "gestion-stock-e2e": {
+      "root": "apps/gestion-stock-e2e",
+      "sourceRoot": "apps/gestion-stock-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/gestion-stock-e2e/cypress.json",
+            "tsConfig": "apps/gestion-stock-e2e/tsconfig.e2e.json",
+            "devServerTarget": "gestion-stock:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "gestion-stock:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/gestion-stock-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/gestion-stock-e2e/**"]
+          }
+        }
+      }
+    },
+    "gestion-employer": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/gestion-employer",
+      "sourceRoot": "apps/gestion-employer/src",
+      "prefix": "demo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/gestion-employer",
+            "index": "apps/gestion-employer/src/index.html",
+            "main": "apps/gestion-employer/src/main.ts",
+            "polyfills": "apps/gestion-employer/src/polyfills.ts",
+            "tsConfig": "apps/gestion-employer/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/gestion-employer/src/favicon.ico",
+              "apps/gestion-employer/src/assets"
+            ],
+            "styles": ["apps/gestion-employer/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/gestion-employer/src/environments/environment.ts",
+                  "with": "apps/gestion-employer/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "gestion-employer:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "gestion-employer:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "gestion-employer:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/gestion-employer/tsconfig.app.json",
+              "apps/gestion-employer/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/gestion-employer/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/gestion-employer/jest.config.js",
+            "tsConfig": "apps/gestion-employer/tsconfig.spec.json",
+            "setupFile": "apps/gestion-employer/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "gestion-employer-e2e": {
+      "root": "apps/gestion-employer-e2e",
+      "sourceRoot": "apps/gestion-employer-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/gestion-employer-e2e/cypress.json",
+            "tsConfig": "apps/gestion-employer-e2e/tsconfig.e2e.json",
+            "devServerTarget": "gestion-employer:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "gestion-employer:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/gestion-employer-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/gestion-employer-e2e/**"]
+          }
+        }
+      }
+    },
+    "auth": {
+      "projectType": "library",
+      "root": "libs/auth",
+      "sourceRoot": "libs/auth/src",
+      "prefix": "demo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/auth/tsconfig.lib.json",
+              "libs/auth/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/auth/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/auth/jest.config.js",
+            "tsConfig": "libs/auth/tsconfig.spec.json",
+            "setupFile": "libs/auth/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "material": {
+      "projectType": "library",
+      "root": "libs/material",
+      "sourceRoot": "libs/material/src",
+      "prefix": "demo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/material/tsconfig.lib.json",
+              "libs/material/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/material/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/material/jest.config.js",
+            "tsConfig": "libs/material/tsconfig.spec.json",
+            "setupFile": "libs/material/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "gestion-stock"
 }

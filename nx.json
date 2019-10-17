@@ -7,5 +7,24 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "gestion-stock-e2e": {
+      "tags": []
+    },
+    "gestion-stock": {
+      "tags": []
+    },
+    "gestion-employer-e2e": {
+      "tags": []
+    },
+    "gestion-employer": {
+      "tags": []
+    },
+    "auth": {
+      "tags": []
+    },
+    "material": {
+      "tags": []
+    }
+  }
 }
